@@ -10,6 +10,7 @@ pipeline {
                 script{
                     sh """
                         echo "Building"
+                        exit 1
                     """
                 }
             }
@@ -39,6 +40,13 @@ pipeline {
     post { 
         always { 
             echo 'I will always say Hello again!'
+        }
+        // here we can give mail id & slack to notify when pipeline is failed or success
+        success {
+            echo 'pipeline success'
+        }
+        failure {
+            echo 'pipeline failure'
         }
     }
 }
