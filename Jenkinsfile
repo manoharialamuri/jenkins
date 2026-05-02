@@ -38,8 +38,8 @@ pipeline {
                         echo "Testing"
                         echo "Hello ${params.PERSON}"
                         echo "Biography: ${params.BIOGRAPHY}"
-                        echo "Toggle: ${params.DEPLOY}" 
-                        echo "Choice: ${params.CHOICE}"
+                        echo "Toggle: ${params.TOGGLE}" 
+                        echo "Choice: ${params.DEPLOY}"
                         echo "Password: ${params.PASSWORD}"
                     """
                 }
@@ -48,7 +48,7 @@ pipeline {
 
         stage('Deploy') {
             when {
-                expression { ${params.DEPLOY} == "true" }
+                expression { "${params.DEPLOY}" == "true" }
             }
             // input {
             //     message "Should we continue?"
